@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'accueil</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('rendezvs.jpeg');
+    background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la zone */
+    background-position: center;
+    height: 100vh; /* Ajuste la hauteur de la page à la taille de l'écran */
+}
+
+
+
+button {
+            padding: 12.5px 30px;
+            border: 0;
+            border-radius: 100px;
+            background-color: #2ba4fb;
+            color: #ffffff;
+            font-weight: Bold;
+            transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+            margin-right: 20px; /* Ajout de la marge droite */
+        }
+
+        button:hover {
+            background-color: #33a6f3;
+            box-shadow: 0 0 20px #6fc5ff50;
+            transform: scale(1.1);
+        }
+
+        button:active {
+            background-color: #6fd5f1;
+            transition: all 0.25s;
+            -webkit-transition: all 0.25s;
+            box-shadow: none;
+            transform: scale(0.98);
+        }
+header {
+    background-color: rgba(240, 240, 240, 0.5); 
+    padding: 20px;
+    text-align: center;
+    position: relative; /* Ajout de position relative pour positionner le logo */
+}
+
+.logo {
+    position: absolute;
+    top: 15px; /* Ajustez la position verticale du logo */
+    left: 20px; /* Ajustez la position horizontale du logo */
+    max-width: 150px; /* Définir la largeur maximale du logo */
+    max-height: 100px; /* Définir la hauteur maximale du logo */
+}
+
+.content {
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1,h2 {
+            font-size: 48px; /* Augmente la taille de la police */
+            color: #4775df; /* Couleur bleue */
+            font-weight: bold; /* Police en gras */
+            
+            text-decoration-color: #4775df; /* Couleur de la décoration de ligne */
+            line-height: 1.5; /* Hauteur de ligne pour espacement vertical */
+        }
+</style>
+<body>
+    <header>
+        <img src="logo.png" alt="Votre Logo" class="logo">
+        <div class="btn-group">
+            <a href="connexionmedecin.html"><button class="glowbutton">MEDECIN? REJOIGNER NOUS</button></a>
+            <a href="connexionpatient.html"><button class="glowbutton">SE CONNECTER</button></a>
+        </div>
+    </header>
+    <div class="content">
+        <h1>Trouvez un rendez-vous avec</h1>
+        <h2>...</h2>
+    </div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const h2 = document.querySelector('h2');
+        const words = ['une Médecin généraliste', ' un Cardiologue', 'un Ophtalmologue','une Gynecologue','un Radiologue','une Psychologue'];
+        let index = 0;
+
+        function changeWord() {
+            h2.textContent = words[index];
+            index = (index + 1) % words.length;
+        }
+
+        setInterval(changeWord, 1500);
+    });
+</script>
+
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>    <title>Temps de Travail</title>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+   
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    min-height: 100vh;
+    color: #000;
+    background-image: url('rendezvs.jpeg'); /* Ajoutez le chemin vers votre image de fond */
+        background-size: cover;
+        background-position: center;
+}
+
+.container {
+    background-color: rgb(10, 9, 10);
+    border-radius: 5px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0);
+    width: 400px;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.header {
+    background-color: #4f91ed;
+    padding: 10px 30px;
+    border-bottom: 1px solid #e3dee3;
+}
+
+.header h2 {
+    margin: 0;
+    text-align: center;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+form .form-group {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+}
+
+form input[type="time"],
+form select {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    border: none;
+    color: #fff;
+    background-image: linear-gradient(30deg, #0400ff, #4ce3f7);
+    border-radius: 20px;
+    background-size: 100% auto;
+    font-family: inherit;
+    font-size: 17px;
+    padding: 0.6em 1.5em;
+    display: block;
+    margin: 0 auto;
+}
+
+button:hover {
+    background-position: right center;
+    background-size: 200% auto;
+    -webkit-animation: pulse 2s infinite;
+    animation: pulse512 1.5s infinite;
+}
+
+@keyframes pulse512 {
+    0% {
+        box-shadow: 0 0 0 0 #05bada66;
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+    }
+}
+
+</style>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Votre temps de travail</h2>
+        </div>
+        <form id="timeForm" action="temp.php" method="post" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="jourDebut">Jour de début :</label>
+                <select id="jourDebut" name="jourDebut" required>
+                    <option value="" disabled selected>Sélectionner le jour de début</option>
+                    <option value="Lundi">Lundi</option>
+                    <option value="Mardi">Mardi</option>
+                    <option value="Mercredi">Mercredi</option>
+                    <option value="Jeudi">Jeudi</option>
+                    <option value="Vendredi">Vendredi</option>
+                    <option value="Samedi">Samedi</option>
+                    <option value="Dimanche">Dimanche</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="heureDebut">Heure de début :</label>
+                <input type="time" id="heureDebut" name="heureDebut" required>
+            </div>
+            <div class="form-group">
+                <label for="jourFin">Jour de fin :</label>
+                <select id="jourFin" name="jourFin" required>
+                    <option value="" disabled selected>Sélectionner le jour de fin</option>
+                    <option value="Lundi">Lundi</option>
+                    <option value="Mardi">Mardi</option>
+                    <option value="Mercredi">Mercredi</option>
+                    <option value="Jeudi">Jeudi</option>
+                    <option value="Vendredi">Vendredi</option>
+                    <option value="Samedi">Samedi</option>
+                    <option value="Dimanche">Dimanche</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="heureFin">Heure de fin :</label>
+                <input type="time" id="heureFin" name="heureFin" required>
+            </div>
+            <button type="submit" onclick="redirectToPage()">Soumettre</button>
+        </form>
+    </div>
+<script>
+    function redirectToPage() {
+            // Redirection vers une autre page
+            window.location.href = "accueildoc.html";
+        }
+    function validateForm() {
+        var jourDebut = document.getElementById("jourDebut").value;
+        var heureDebut = document.getElementById("heureDebut").value;
+        var jourFin = document.getElementById("jourFin").value;
+        var heureFin = document.getElementById("heureFin").value;
+
+        if (jourDebut == "" || heureDebut == "" || jourFin == "" || heureFin == "") {
+            alert("Veuillez remplir tous les champs.");
+            return false;
+        }
+
+        return true;
+    }
+</script>
+</body>
+
+</html>

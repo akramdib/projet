@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Connexion</title>
+    <style>
+      body, html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url('rendezvs.jpeg'); /* Ajoutez le chemin vers votre image de fond */
+        background-size: cover;
+        background-position: center;
+      }
+
+      .form-box {
+    max-width: 400px; /* Réduire la largeur maximale de la boîte du formulaire */
+    width: 100%;
+    background: #f1f7fe;
+    overflow: hidden;
+    border-radius: 16px;
+    color: #010101;
+    padding: 20px; /* Ajouter un peu d'espace à l'intérieur de la boîte */
+}
+
+      .form {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding: 32px 24px 24px;
+        gap: 16px;
+        text-align: center;
+      }
+
+      /*Form text*/
+      .title {
+        font-weight: bold;
+        font-size: 1.6rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+        color: #666;
+      }
+
+      /*Inputs box*/
+      .form-container {
+        overflow: hidden;
+        border-radius: 8px;
+        background-color: #fff;
+        margin: 1rem 0 .5rem;
+        width: 100%;
+        padding: 10px; 
+      }
+
+      .input {
+    background: none;
+    border: 0;
+    outline: 0;
+    height: 40px;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    font-size: .9rem;
+    padding: 8px 15px;
+    margin-bottom: 10px; /* Ajouter un peu d'espace entre les champs de saisie */
+}
+
+      .form-section {
+        padding: 15px;
+        font-size: .85rem;
+        color: #666;
+      }
+
+      .form-section a {
+        font-weight: bold;
+        color: #0066ff;
+        transition: color .3s ease;
+        margin-left: 10px;
+      }
+
+      .form-section a:hover {
+        color: #005ce6;
+        text-decoration: underline;
+      }
+
+      /*Button*/
+      .form button {
+        background-color: #0066ff;
+        color: #fff;
+        border: 0;
+        border-radius: 24px;
+        padding: 10px 16px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color .3s ease;
+      }
+
+      .form button:hover {
+        background-color: #005ce6;
+      }
+    </style>
+</head>
+<body>
+<div class="form-box">
+<form class="form" action="traitement_connexion_medecin.php" method="POST">
+    <span class="title">Connexion</span>
+    
+    <div class="form-container">
+     
+      <input type="email" class="input" name="email_med" placeholder="Email" required>
+      <input type="password" class="input" name="pass_med" placeholder="Mot de passe" required>
+      <div class="form-section">
+        <a href="mtpsoublier.html">Mot de passe oublié?</a>
+      </div>
+    </div>
+    <button type="submit">Connexion</button>
+</form>
+<div class="form-section">
+  <p>Avoir un compte? <a href="inscriptionmedecin.html">S'inscrire</a> </p>
+</div>
+</div>
+</body>
+</html>

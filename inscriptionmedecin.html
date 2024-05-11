@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire d'Inscription Medecin</title>
+</head>
+<style>
+    *{
+    box-sizing: border-box;
+}
+body{
+    background-color: #ADD8E6; /* Bleu clair */
+    background-image: url('rendezvs.jpeg'); /* Chemin vers l'image */
+    background-size: cover; /* Redimensionner l'image pour couvrir l'intégralité de la page */
+    background-position: center; /* Centrer l'image horizontalement et verticalement */
+    background-repeat: no-repeat; /* Ne pas répéter l'image */
+    background-attachment: fixed;
+    
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    min-height: 100vh;
+    color: #000; /* Couleur du texte noire */
+
+}
+.container{
+    background-color: rgb(10, 9, 10);
+    border-radius: 5px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0);
+    width:400px ;
+    max-width: 100%;
+    overflow: hidden;
+
+}
+.header{
+    background-color: #4f91ed;
+    padding: 10px 30px;
+    border-bottom: 1px solid #e3dee3;
+}
+.header h2{
+    margin: 0;
+    text-align: center; /* Centrer horizontalement le texte */
+
+}
+/* Style du champ de sélection de spécialité */
+form select#specialite {
+    width: 100%; /* Réglez la largeur sur 100% */
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+ /* Style du formulaire */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc; /* Couleur du cadre */
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Ajout d'une couleur de fond */
+}
+
+/* Style des champs */
+form div {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form input[type="tel"],
+form textarea {
+    width: 100%; /* Réglez la largeur sur 100% */
+    padding: 6px; /* Réduisez davantage le rembourrage pour rendre le champ plus petit */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+    form label, form input[type="radio"] {
+    display: inline-block; /* Afficher les labels et les boutons radio sur la même ligne */
+    vertical-align: middle; /* Alignement vertical des éléments */
+}
+
+
+
+/* Style du bouton */
+button {
+ border: none;
+ color: #fff;
+ background-image: linear-gradient(30deg, #0400ff, #4ce3f7);
+ border-radius: 20px;
+ background-size: 100% auto;
+ font-family: inherit;
+ font-size: 17px;
+ padding: 0.6em 1.5em;
+ display: block; 
+ margin: 0 auto; 
+}
+
+button:hover {
+ background-position: right center;
+ background-size: 200% auto;
+ -webkit-animation: pulse 2s infinite;
+ animation: pulse512 1.5s infinite;
+}
+form input[type="file"] {
+    width: 100%; /* Réglez la largeur sur 100% */
+    padding: 10px; /* Augmentez le rembourrage pour donner plus d'espace au champ */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+@keyframes pulse512 {
+ 0% {
+  box-shadow: 0 0 0 0 #05bada66;
+ }
+
+ 70% {
+  box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+ }
+
+ 100% {
+  box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+ }
+ }
+ .error {
+        color: red;
+ }
+</style>
+<body>
+    <div class ="container">
+        <div class ="header">
+            <h2>S'inscrire</h2>
+
+        </div>
+        <form class="form" id="form" action="inscriptionmedecin.php" method="post" onsubmit="return validateForm()">
+            <div>
+            <label for="nom_med">Nom:</label>
+            <input type="text" id="nom_med" name="nom_med" required>
+        </div>
+            <div>
+            <label for="prenom_med">Prenom:</label>
+            <input type="text" id="prenom_med" name="prenom_med" required>
+        </div>
+        <div>
+            <label for="mot_de_passe">Mot de passe:</label>
+            <input type="password" id="mot_de_passe" name="pass_med" required>
+        </div>
+        <div>
+            <label for="confirmer_mot_de_passe">Confirmer Mot de passe:</label>
+            <input type="password" id="confirmer_mot_de_passe" name="confirmer_mot_de_passe" required>
+        </div>
+        <div>
+            <label for="numero_telephone">Numéro de Téléphone:</label>
+            <input type="tel" id="numero_telephone" name="num_tel_med" required>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email_med" required>
+        </div>
+        <div>
+            <label for="date_de_naissance">Date de Naissance:</label>
+            <input type="date" id="date_de_naissance" name="date_naissance_med" required>
+        </div>
+        
+        <div>
+            <label for="email">Sexe:</label>
+            <input type="radio" id="sexe_homme" name="sexe_med" value="homme" required>
+            <label for="sexe_homme">Homme</label>
+            <input type="radio" id="sexe_femme" name="sexe_med" value="femme" required>
+            <label for="sexe_femme">Femme</label>
+        </div>
+        <div>
+          <label for="specialite">Spécialité:</label>
+          <select id="specialite" name="nom_spe">
+              <option value="medecine generale">Médecine générale</option>
+              <option value="cardiologie">Cardiologie</option>
+              <option value="dermatologie">Dermatologie</option>
+              <option value="Gynecologie">Gynecologie</option>
+              <option value="pediatrie">Pédiatrie</option>
+              <option value="orthopedie">Orthopédie</option>
+              <option value="psychiatrie">Psychiatrie</option>
+              <option value="radiologie">Radiologie</option>
+              <option value="hepatologie">Hépatologie</option>
+              <option value="odontologie">Ontologie</option>
+              <option value="ophtalmologie">Ophtalmologie</option>
+              <option value="oto-rhino-laryngologie">Oto-rhino-laryngologie.</option>
+              <option value="pneumologie">Pneumologie</option>
+              <option value="neurologie">neurologie</option>
+              
+          </select>
+        </div>
+        <div>
+            <label for="fichier">Diplôme:</label>
+            <input type="file" id="fichier" name="agrement">
+        </div>
+        <div>
+          <label for="ville">Ville:</label>
+          <input type="text" id="ville" name="ville" required>
+      </div>
+        <div>
+            <label for="adresse">Adresse:</label>
+            <textarea id="adresse" name="adresse_med"></textarea>
+        </div>
+        <button type="submit" href="temp.html" >S'inscrire</button>
+    </form>
+    <script>
+        
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const nomField = document.getElementById("nomField");
+      const specialiteField = document.getElementById("specialiteField");
+      const form = document.getElementById("searchForm");
+    
+      form.addEventListener("submit", function(event) {
+        const villeInput = document.getElementById("ville");
+        const searchTypeRadios = document.querySelectorAll('input[name="searchType"]');
+        let isValid = true;
+    
+        if (villeInput.value.trim() === "") {
+          isValid = false;
+        }
+    
+        searchTypeRadios.forEach(function(radio) {
+          if (radio.checked && radio.value === "nom") {
+            const nomInput = document.getElementById("nom");
+            if (nomInput.value.trim() === "") {
+              isValid = false;
+            }
+          } else if (radio.checked && radio.value === "specialite") {
+            const specialiteInput = document.getElementById("specialite");
+            if (specialiteInput.value.trim() === "") {
+              isValid = false;
+            }
+          }
+        });
+    
+        if (!isValid) {
+          event.preventDefault();
+          alert("Veuillez remplir tous les champs obligatoires.");
+        }
+      });
+    
+      document.querySelectorAll('input[name="searchType"]').forEach(function(radio) {
+        radio.addEventListener("change", function() {
+          if (this.value === "nom") {
+            nomField.style.display = "block";
+            specialiteField.style.display = "none";
+          } else if (this.value === "specialite") {
+            nomField.style.display = "none";
+            specialiteField.style.display = "block";
+          }
+        });
+      });
+    });
+    
+    </script> 
+</body>
+</html>

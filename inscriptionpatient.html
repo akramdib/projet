@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Connexion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('rendezvs.jpeg'); /* Ajoutez le chemin vers votre image de fond */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #f0f0f0;
+        }
+
+        .cadre {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            margin: 20px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #0073e6;
+            font-size: 24px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="email"],
+        input[type="password"],
+        input[type="text"],
+        input[type="tel"],
+        select,
+        input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+       input[type="submit"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: #0073e6;
+  color: white;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+    </style>
+</head>
+<body>
+<div class="cadre">
+    <h2>s'inscrire</h2>
+    <form action="inscriptionpatient.php" method="post">
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email_patient" required>
+
+        <label for="motdepasse">Mot de passe :</label>
+        <input type="password" id="motdepasse" name="pass_patient" required>
+
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom_patient" required>
+
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom_patient" required>
+
+        <label for="datenaissance">Date de Naissance :</label>
+        <input type="date" id="datenaissance" name="date_naissance_pat" required style="width: 100%;">
+
+        <label for="telephone">Numéro de Téléphone :</label>
+        <input type="tel" id="telephone" name="num_tel_patient" required>
+
+        <label for="sexe">Sexe :</label>
+        <select id="sexe" name="sexe_patient" required>
+            <option value="Homme">Homme</option>
+            <option value="Femme">Femme</option>
+        </select>
+
+        <input type="submit" value="s'inscrire">
+    </form>
+    <div class="form-section">
+        <p>Vous avez un compte? <a href="connexionpastient.html">se connecter</a> </p>
+      </div>
+</div>
+</body>
+</html>

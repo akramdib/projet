@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recherche de médecin</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      background-image: url('rendezvs.jpeg'); /* Ajoutez le chemin vers votre image de fond */
+      background-size: cover;
+      background-position: center;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      width: 300px;
+      margin: 20px auto;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #0073e6;
+      font-size: 24px; /* Taille de police réduite */
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="submit"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #0073e6;
+      color: white;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <form id="searchForm" action="recherchemedecin.php" method="GET">
+    <h1>Recherche de médecin</h1>
+
+    <label for="ville">Ville :</label>
+    <input type="text" id="ville" name="ville"><br><br>
+
+    <label for="searchType">Sélectionner par :</label><br>
+    <input type="radio" id="parNom" name="searchType" value="nom_med">
+    <label for="parNom">Par nom</label><br>
+    <input type="radio" id="parSpecialite" name="searchType" value="nom_spe">
+    <label for="parSpecialite">Par spécialité</label><br><br>
+
+    <div id="nomField" style="display:none;">
+      <label for="nom">Nom :</label>
+      <input type="text" id="nom" name="nom_med"><br><br>
+    </div>
+
+    <div id="specialiteField" style="display:none;">
+      <label for="specialite">Spécialité :</label>
+      <input type="text" id="specialite" name="nom_spe"><br><br>
+    </div>
+
+    <input type="submit" value="Rechercher">
+  </form>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const nomField = document.getElementById("nomField");
+      const specialiteField = document.getElementById("specialiteField");
+
+      document.querySelectorAll('input[name="searchType"]').forEach(function(radio) {
+        radio.addEventListener("change", function() {
+          if (this.value === "nom_med") {
+            nomField.style.display = "block";
+            specialiteField.style.display = "none";
+          } else if (this.value === "nom_spe") {
+            nomField.style.display = "none";
+            specialiteField.style.display = "block";
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

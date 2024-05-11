@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Page Accueil Medecin</title>
+    <meta charset="UTF-8">
+    <style>
+        *,::before,::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        header {
+            height: 80px;
+            width: 100%;
+            background-color: #c3c9cd;
+            color: darkblue;
+        }
+        footer{
+            height: 80px;
+            width: 100%;
+            background-color: #c3c9cd;
+            color: darkblue;
+            display: flex;
+            justify-content: center; /* Centre horizontalement */
+            align-items: center; /* Centre verticalement */
+        }
+        nav {
+            background-color:eff4f9;
+            color: red;
+            position: relative; /* Position relative pour que les éléments enfants soient positionnés par rapport à elle */
+        }
+        nav img {
+            width: 100px;
+            height: 100px;
+            margin-left: 20px;
+        }
+        ul {
+            list-style: none;
+            position: absolute; /* Position absolue pour déplacer les éléments li */
+            top: 50%; /* Alignement en haut de la barre de navigation */
+            transform: translateY(-50%); /* Décalage vertical pour centrer verticalement */
+            right: 5px; /* Espacement de 20px depuis la droite */
+        }
+        li {
+            line-height: 80px;
+			margin-left: 1px;
+            display: inline-block;
+        }
+        a {
+            text-decoration: none;
+            width: 200px;
+            height: 30px;
+            display: block;
+            font-weight: bold;
+            background:#168de1;
+            color: rgb(243, 248, 249);
+            border-radius: 10px;
+            line-height: 30px;
+            margin-left: 10px;
+            text-align: center;
+        }
+        a:hover {
+            background-color: #33a6f3;
+            box-shadow: 0 0 20px #6fc5ff50;
+            transform: scale(1.1);
+        }
+        button {
+            padding: 12.5px 30px;
+            border: 0;
+            border-radius: 100px;
+            background-color: #2ba4fb;
+            color: #ffffff;
+            font-weight: Bold;
+            transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+            margin-right: 20px; /* Ajout de la marge droite */
+        }
+
+        button:hover {
+            background-color: #33a6f3;
+            box-shadow: 0 0 20px #6fc5ff50;
+            transform: scale(1.1);
+        }
+
+        button:active {
+            background-color: #6fd5f1;
+            transition: all 0.25s;
+            -webkit-transition: all 0.25s;
+            box-shadow: none;
+            transform: scale(0.98);
+        }
+   </style>
+</head>
+<body>
+<header>
+    <nav>
+        <img src="logo.png" alt="logo" class="logo">
+        <ul>
+            <li><a href="accueil.html">Se deconnecter</a></li>
+        </ul>
+    </nav>
+</header>
+<div style="background-color:rgba(239, 239, 239, 1); text-align:center">
+    <img src="docteur3.jpg" alt="accueil" class="accueil">
+</div>
+<footer>
+<div>
+    <li><button class="shadow__btn">Consulter les rendez-vous</button></li>
+     <li> <button class="shadow__btn">Gerer les rendez-vous</button></li>
+    </div>
+</footer>
+</body>
+</html>
